@@ -1,0 +1,185 @@
+/* ---------- Google Font ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ---------- Body ---------- */
+
+body{
+    font-family:"IBM Plex Mono", monospace;
+    background:#fff;
+    color:#444; /* 正文默认深灰 */
+    font-size:14px;
+    line-height:1.35;
+}
+
+/* ---------- Title Color System (2 levels only) ---------- */
+
+h1, h2, h3, nav h1, section h3{
+    color:#000; /* 所有标题统一黑色 */
+}
+
+p, td, th{
+    color:#444; /* 所有正文统一深灰 */
+}
+
+/* ---------- Navigation ---------- */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 6%;
+    z-index:999;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#000;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    transition:.2s;
+}
+
+nav a:hover{
+    opacity:.5;
+}
+
+/* ---------- Hero ---------- */
+
+header{
+    margin-top:65px;
+    padding:35px 6% 20px;
+    text-align:left;
+}
+
+header h2{
+    font-size:46px;
+    font-weight:400;
+    line-height:1;
+    letter-spacing:1px;
+    margin-bottom:4px;
+}
+
+header p{
+    font-size:15px;
+    line-height:1.2;
+    margin-bottom:2px;
+}
+
+header img{
+    width:100%;
+    margin-top:18px;
+    display:block;
+    border:1px solid #ddd;
+}
+
+/* ---------- Sections ---------- */
+
+section{
+    width:88%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+section h3{
+    font-size:18px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-bottom:1px solid #ccc;
+    padding-bottom:6px;
+    margin-bottom:16px;
+}
+
+/* ---------- Tables ---------- */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    text-align:left;
+    padding:9px 0;
+    border-bottom:1px solid #eee;
+    vertical-align:top;
+}
+
+td:first-child{
+    width:200px;
+    font-weight:500;
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.gallery img{
+    width:100%;
+    display:block;
+    border:1px solid #ddd;
+    transition:.25s;
+}
+
+.gallery img:hover{
+    opacity:.8;
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+    width:88%;
+    margin:45px auto 25px;
+    border-top:1px solid #ccc;
+    padding-top:15px;
+    font-size:12px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    header h2{
+        font-size:34px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    td:first-child{
+        width:120px;
+    }
+}
