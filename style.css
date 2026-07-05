@@ -1,4 +1,17 @@
-/* ---------- Google Font ---------- */
+/* ---------- Cyberdelia Editorial Palette ---------- */
+
+:root{
+    --title:#E4F7FF;
+    --text:#E5DFFF;
+    --muted:#BDB4E8;
+    --nav:#C9F2FF;
+    --hover:#FFF2C7;
+    --line:rgba(255,255,255,.26);
+    --soft:rgba(255,255,255,.08);
+    --accent:#B9F3FF;
+}
+
+/* ---------- Global ---------- */
 
 *{
     margin:0;
@@ -6,24 +19,78 @@
     box-sizing:border-box;
 }
 
-/* ---------- Body ---------- */
+html{
+    scroll-behavior:smooth;
+}
+
+/* ---------- Body Background ---------- */
 
 body{
-    font-family:"IBM Plex Mono", monospace;
-    background:#fff;
-    color:#444; /* 正文默认深灰 */
-    font-size:14px;
-    line-height:1.35;
+    font-family:"Exo 2",sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(10,8,35,.14),
+            rgba(10,8,35,.32)
+        ),
+        url("images/01.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:var(--text);
+    font-size:15px;
+    line-height:1.65;
+    font-weight:300;
+    letter-spacing:.02em;
+
+    min-height:100vh;
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
-/* ---------- Title Color System (2 levels only) ---------- */
+/* ---------- Subtle Grid Overlay ---------- */
 
-h1, h2, h3, nav h1, section h3{
-    color:#000; /* 所有标题统一黑色 */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:46px 46px;
+    opacity:.28;
+    mix-blend-mode:overlay;
+    z-index:-1;
 }
 
-p, td, th{
-    color:#444; /* 所有正文统一深灰 */
+/* ---------- Typography ---------- */
+
+h1,
+h2,
+h3,
+nav h1,
+section h3{
+    font-family:"Exo 2",sans-serif;
+    color:var(--title);
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    text-shadow:
+        0 0 8px rgba(228,247,255,.45),
+        0 0 20px rgba(185,243,255,.18);
+}
+
+p,
+td,
+th{
+    color:var(--text);
+    font-weight:300;
 }
 
 /* ---------- Navigation ---------- */
@@ -33,127 +100,245 @@ nav{
     top:0;
     left:0;
     width:100%;
-    background:#fff;
-    border-bottom:1px solid #ddd;
+
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(22px) saturate(160%);
+    -webkit-backdrop-filter:blur(22px) saturate(160%);
+
+    border-bottom:1px solid var(--line);
+    box-shadow:
+        0 8px 32px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:14px 6%;
+    padding:16px 6%;
     z-index:999;
+}
+
+nav h1{
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:.18em;
 }
 
 nav ul{
     display:flex;
     list-style:none;
-    gap:20px;
+    gap:24px;
 }
 
 nav a{
+    font-family:"Exo 2",sans-serif;
     text-decoration:none;
-    color:#000;
+    color:var(--nav);
     font-size:12px;
+    font-weight:500;
     text-transform:uppercase;
-    letter-spacing:1px;
-    transition:.2s;
+    letter-spacing:.20em;
+    transition:.25s;
+    text-shadow:0 0 8px rgba(201,242,255,.45);
 }
 
 nav a:hover{
-    opacity:.5;
+    color:var(--hover);
+    text-shadow:
+        0 0 10px rgba(255,255,255,.55),
+        0 0 18px rgba(185,243,255,.25);
 }
 
 /* ---------- Hero ---------- */
 
 header{
-    margin-top:65px;
-    padding:35px 6% 20px;
+    min-height:92vh;
+    padding:120px 6% 54px;
+
+    display:grid;
+    align-content:end;
+
     text-align:left;
 }
 
 header h2{
-    font-size:46px;
-    font-weight:400;
-    line-height:1;
-    letter-spacing:1px;
-    margin-bottom:4px;
+    max-width:980px;
+
+    font-size:clamp(44px, 8vw, 112px);
+    font-weight:200;
+    line-height:.88;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    margin-bottom:22px;
 }
 
 header p{
-    font-size:15px;
-    line-height:1.2;
-    margin-bottom:2px;
+    font-size:18px;
+    font-weight:300;
+    line-height:1.6;
+    color:var(--muted);
+    max-width:760px;
 }
 
 header img{
     width:100%;
-    margin-top:18px;
+    margin-top:30px;
     display:block;
-    border:1px solid #ddd;
+
+    border:1px solid var(--line);
+    border-radius:0;
+
+    box-shadow:
+        0 18px 60px rgba(0,0,0,.34),
+        0 0 42px rgba(185,243,255,.20);
 }
 
-/* ---------- Sections ---------- */
+/* ---------- Editorial Sections ---------- */
 
 section{
     width:88%;
-    max-width:1100px;
-    margin:40px auto;
+    max-width:1180px;
+    margin:70px auto;
+    padding:0;
+
+    background:transparent;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+
+    border:none;
+    border-top:1px solid var(--line);
+
+    box-shadow:none;
+    border-radius:0;
 }
 
 section h3{
-    font-size:18px;
+    font-size:17px;
     font-weight:500;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    border-bottom:1px solid #ccc;
-    padding-bottom:6px;
-    margin-bottom:16px;
+    letter-spacing:.18em;
+
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    margin-bottom:30px;
 }
 
-/* ---------- Tables ---------- */
+/* ---------- Staggered Datasheet ---------- */
 
 table{
     width:100%;
-    border-collapse:collapse;
+    border-collapse:separate;
+    border-spacing:0;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:40px 90px;
 }
 
-th, td{
+tbody{
+    display:contents;
+}
+
+tr{
+    display:block;
+    padding:0 0 34px;
+    border-bottom:1px solid rgba(255,255,255,.18);
+}
+
+tr:nth-child(even){
+    margin-top:70px;
+}
+
+tr:nth-child(3n){
+    margin-left:28px;
+}
+
+tr:nth-child(4n){
+    margin-top:120px;
+}
+
+th,
+td{
+    display:block;
     text-align:left;
-    padding:9px 0;
-    border-bottom:1px solid #eee;
+    padding:0;
+    border-bottom:none;
     vertical-align:top;
 }
 
 td:first-child{
-    width:200px;
-    font-weight:500;
+    width:auto;
+
+    font-size:12px;
+    font-weight:600;
+    color:var(--title);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+    text-shadow:0 0 8px rgba(228,247,255,.35);
+}
+
+td:last-child{
+    font-size:22px;
+    line-height:1.25;
+    font-weight:300;
+    color:var(--text);
+    max-width:440px;
 }
 
 /* ---------- Gallery ---------- */
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    grid-template-columns:1.2fr .8fr 1fr;
+    gap:22px;
+    align-items:start;
 }
 
 .gallery img{
     width:100%;
     display:block;
-    border:1px solid #ddd;
-    transition:.25s;
+
+    border:1px solid var(--line);
+    border-radius:0;
+
+    transition:.35s ease;
+    box-shadow:
+        0 12px 36px rgba(0,0,0,.26),
+        0 0 24px rgba(185,243,255,.16);
+}
+
+.gallery img:nth-child(2){
+    margin-top:80px;
+}
+
+.gallery img:nth-child(3){
+    margin-top:32px;
 }
 
 .gallery img:hover{
-    opacity:.8;
+    opacity:.96;
+    transform:translateY(-6px) scale(1.018);
+    box-shadow:
+        0 18px 48px rgba(0,0,0,.32),
+        0 0 36px rgba(185,243,255,.38),
+        0 0 52px rgba(255,242,199,.16);
 }
 
 /* ---------- Footer ---------- */
 
 footer{
     width:88%;
-    margin:45px auto 25px;
-    border-top:1px solid #ccc;
-    padding-top:15px;
+    max-width:1180px;
+    margin:90px auto 32px;
+    padding:18px 0 0;
+
+    border-top:1px solid var(--line);
+
     font-size:12px;
+    font-weight:300;
+    letter-spacing:.08em;
+    color:var(--muted);
 }
 
 /* ---------- Mobile ---------- */
@@ -164,22 +349,206 @@ footer{
         flex-direction:column;
         align-items:flex-start;
         gap:10px;
+        padding:14px 6%;
     }
 
     nav ul{
         flex-wrap:wrap;
-        gap:10px;
+        gap:12px;
+    }
+
+    header{
+        min-height:78vh;
+        padding-top:150px;
     }
 
     header h2{
-        font-size:34px;
+        font-size:42px;
+        letter-spacing:.12em;
+    }
+
+    header p{
+        font-size:15px;
+    }
+
+    section{
+        width:90%;
+        margin:48px auto;
+    }
+
+    table{
+        display:block;
+    }
+
+    tr,
+    tr:nth-child(even),
+    tr:nth-child(3n),
+    tr:nth-child(4n){
+        margin:0 0 34px;
+    }
+
+    td:last-child{
+        font-size:18px;
     }
 
     .gallery{
         grid-template-columns:1fr;
     }
 
-    td:first-child{
-        width:120px;
+    .gallery img:nth-child(2),
+    .gallery img:nth-child(3){
+        margin-top:0;
     }
+/* ---------- Artist's Other Works ---------- */
+
+.other-works-section{
+    border-top:1px solid var(--line);
+    padding-top:12px;
 }
+
+.other-works-list{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:36px;
+    width:100%;
+    margin-top:12px;
+}
+
+.other-work{
+    width:100%;
+    max-width:720px;
+    padding-bottom:24px;
+    border-bottom:1px solid rgba(255,255,255,.14);
+}
+
+.other-work:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+
+.other-work h4{
+    font-family:"Exo 2",sans-serif;
+    font-size:24px;
+    font-weight:300;
+    line-height:1.15;
+    letter-spacing:.05em;
+    text-transform:none;
+
+    color:var(--title);
+
+    margin-bottom:8px;
+
+    text-shadow:
+        0 0 6px rgba(228,247,255,.25);
+}
+
+.other-work p{
+    font-size:15px;
+    font-weight:300;
+    line-height:1.55;
+    color:var(--text);
+
+    margin-bottom:6px;
+}
+
+.other-work span{
+    display:block;
+
+    font-size:12px;
+    font-weight:400;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+
+    color:var(--muted);
+}
+<!-- Exhibitions + Awards -->
+<section id="exhibitions" class="exhibition-awards">
+
+    <div class="exhibition-column">
+
+        <h3>Exhibitions</h3>
+
+        <div class="ea-list">
+
+            <div class="ea-item">
+                <h4>Asia Digital Art Exhibition</h4>
+                <p>Beijing, China</p>
+                <span>2026</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Of the Earth</h4>
+                <p>Earthly Technologies to Computational Biologies · Diriyah Art Futures</p>
+                <span>2026</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Synthetic Natures</h4>
+                <p>Chanel Nexus Hall</p>
+                <span>2025</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Subject to Change</h4>
+                <p>Gazelli Art House</p>
+                <span>2025</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>NVIDIA GTC Art Gallery</h4>
+                <p>Art Gallery</p>
+                <span>2025</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Rear Window & Real Wonder</h4>
+                <p>HOW Art Museum</p>
+                <span>2025</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Unknown & Uncontained</h4>
+                <p>ART SG / Gazelli Art House</p>
+                <span>2025</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Coding Phenology</h4>
+                <p>Beijing Times Art Museum</p>
+                <span>2024</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Handle with Care</h4>
+                <p>Colección SOLO</p>
+                <span>2024</span>
+            </div>
+
+            <div class="ea-item">
+                <h4>Uncomputer</h4>
+                <p>Unit London</p>
+                <span>2023</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="awards" class="awards-column">
+
+        <h3>Awards</h3>
+
+        <div class="ea-list">
+
+            <div class="ea-item">
+                <h4>The Lumen Prize</h4>
+                <p>Nature & Climate Award — Winner</p>
+                <span>2025</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
