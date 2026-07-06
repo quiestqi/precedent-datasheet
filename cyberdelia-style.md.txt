@@ -1,0 +1,44 @@
+# Cyberdelia Website Style Guide
+
+## Aesthetic
+
+This website is inspired by Cyberdelia, a visual culture that combines early cyberculture, psychedelic imagery, and experimental digital aesthetics.
+
+Instead of reproducing a nostalgic 1990s website, I wanted to reinterpret Cyberdelia as a contemporary exhibition interface.
+
+## Color
+
+The color palette is inspired by iridescent lighting and holographic surfaces.
+
+- Deep indigo
+- Lavender
+- Ice blue
+- Pearl white
+
+These colors create an immersive atmosphere while maintaining readability.
+
+## Typography
+
+The website uses Exo 2 because it feels futuristic and clean without becoming overly mechanical.
+
+Large headings establish hierarchy while lighter body text improves readability.
+
+## Composition
+
+I redesigned the original datasheet into an editorial layout.
+
+Artist's Other Works, Exhibitions, and Awards are presented as vertical information blocks rather than traditional tables.
+
+This creates a rhythm that resembles exhibition catalogues and contemporary design websites.
+
+## Material
+
+The interface uses glassmorphism, soft glows, and translucent layers to create depth.
+
+A background image combined with blur effects reinforces the Cyberdelia atmosphere.
+
+## AI-assisted Coding
+
+I used ChatGPT as a design collaborator throughout the project.
+
+Rather than generating the final website in a single step, I iteratively refined the visual language through multiple rounds of prompts, focusing on typography, color, composition, and interface details.
